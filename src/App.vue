@@ -9,10 +9,17 @@
             </div>
         </div>
         </div>
-        <!-- <LandingPage @onSceneLoad="onSceneLoad" /> -->
+    </template>
+    <template v-else-if="showLearnMorePage">
+        <blockquote>
+        <p>Welcome to Make my space trip - the ultimate travel guide for your space adventures!</p>
+      </blockquote>
     </template>
     <template v-else>
         <h1>MAKE MY SPACE TRIP</h1>
+        <div class='button-wrapper-1'>
+            <div class="button" @click="changeBack">Go Back</div>
+        </div>
         <Scene @onSceneLoad="onSceneLoad" />
         <div ref="loading" class="loading-screen">
             <div class="planet">
@@ -27,7 +34,6 @@
 
 <script>
     import Scene from "./components/Scene.vue";
-    // import LandingPage from "./components/LandingPage.vue";
     export default {
         components: {
             Scene,
@@ -43,6 +49,9 @@
             },
             changeHomePage() {
                 this.showLandingPage = false;
+            },
+            changeBack() {
+                this.showLandingPage = true;
             }
 
         }
@@ -103,18 +112,31 @@
         }
     }
 
-    .space-trip {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  background: black;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative; /* Added for z-index */
-}
+    blockquote {
+    margin: 0;
+    padding: 0;
+    grid-column: 2 / span 9;
+    margin-bottom: var(--spacing);
+  }
 
+  blockquote p {
+    color: rgb(65, 65, 65);
+    background-color: white;
+    font-size: 3rem;
+    display: inline;
+  }
+    .space-trip {
+        background-image: url("./public/assests/bg.jpeg") no-repeat center;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        background: black;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; /* Added for z-index */
+}
 
 
 .text-box {
@@ -134,6 +156,14 @@
   flex-direction: row;
 }
 
+
+.button-wrapper-1 {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  padding-top: 50px;
+  flex-direction: row;
+}
 .button {
   display: inline-block;
   font-size: 16px;
