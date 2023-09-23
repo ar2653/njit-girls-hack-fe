@@ -32,7 +32,7 @@ export default {
     },
     emits: ["onSceneLoad"],
     components: {
-        Options,
+        //Options,
         PlanetCard,
     },
     async mounted(){
