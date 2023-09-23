@@ -1,5 +1,10 @@
 <template>
-    <Scene @onSceneLoad="onSceneLoad" />
+    <template v-if="showLandingPage">
+        <button @click="changeHomePage">Click ME</button>
+    </template>
+    <template v-else>
+        <h1>MAKE MY SPACE TRIP</h1>
+        <Scene @onSceneLoad="onSceneLoad" />
     <div ref="loading" class="loading-screen">
         <div class="planet">
             <div class="cloud"></div>
@@ -8,6 +13,7 @@
         </div>
         <p>Loading...</p>
     </div>
+    </template>
 </template>
 
 <script>
@@ -16,10 +22,19 @@
         components: {
             Scene,
         },
+        data(){
+            return {
+                showLandingPage:true
+            }
+        },
         methods: {
             onSceneLoad() {
                 this.$refs.loading.style.display = "none";
+            },
+            changeHomePage() {
+                this.showLandingPage = false;
             }
+
         }
     }
 </script>
