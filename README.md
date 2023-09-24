@@ -44,12 +44,17 @@ Front End - https://tabrez-njit.github.io/
 Back End - https://total-treat-400007.uk.r.appspot.com/
 
 ### Meet the Team:
-- Shaik Tabrez <p><img  src="./st.jpeg"  width=50  height=50>
-- Ankush Ranapure <p><img  src="./ar.jpeg"  width=50  height=50>
-- Richa Singh <p><img  src="./rs.jpeg"  width=50  height=50>
+- Shaik Tabrez <p><img  src="./st.jpeg"  width=50  height=50><br><a href="https://www.linkedin.com/in/shaik-tabrez/">LinkedIn </a> <br> <a href="https://github.com/tabrezdn1">Github</a>
+- Ankush Ranapure <p><img  src="./ar.jpeg"  width=50  height=50><br> <a href="https://www.linkedin.com/in/ankush-ranapure/">LinkedIn </a><br> <a href="https://github.com/ar2653">Github</a>
+- Richa Singh <p><img  src="./rs.jpeg"  width=50  height=50><br> <a href="https://www.linkedin.com/in/richa-singh-78935438/">LinkedIn </a><br> <a href="https://github.com/richa-bsingh">Github</a>
 
 ### Roadmap to Development for Hackathon:
 <p><img  src="./trello.jpeg"  width=500  height=300>
+
+### Inspired by:
+
+https://github.com/honzaap/SolarSystem/
+https://solarsystem.nasa.gov/
 
 ### How does it work?
 
