@@ -12,10 +12,10 @@
   </template>
   <template v-else>
     <h1>MAKE MY SPACE TRIP</h1>
-    <div class="button-wrapper-1">
+    <!-- <div class="button-wrapper-1">
         <div class="button" @click="changeBack">Go Back</div>
 
-    </div>
+    </div> -->
 
     <Scene @onSceneLoad="onSceneLoad" />
     <div ref="loading" class="loading-screen">
@@ -46,9 +46,6 @@
             },
             changeHomePage() {
                 this.showLandingPage = false;
-            },
-            changeBack() {
-                this.showLandingPage = true;
             }
 
         }
@@ -121,7 +118,9 @@
   position: relative; /* Added for z-index */
 }
 
-
+h1{
+  font-family: "Orbitron", sans-serif;
+}
 
 .text-box {
   font-size: 60px;
