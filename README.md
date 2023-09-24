@@ -51,11 +51,6 @@ Back End - https://total-treat-400007.uk.r.appspot.com/
 ### Roadmap to Development for Hackathon:
 <p><img  src="./trello.jpeg"  width=500  height=300>
 
-### Inspired by:
-
-https://github.com/honzaap/SolarSystem/
-https://solarsystem.nasa.gov/
-
 ### How does it work?
 
 - Move around the Solar system with mouse
@@ -75,3 +70,8 @@ https://solarsystem.nasa.gov/
 - run npm install
 
 - run npm run dev
+
+### Inspired by:
+
+https://github.com/honzaap/SolarSystem/ <br>
+https://solarsystem.nasa.gov/
