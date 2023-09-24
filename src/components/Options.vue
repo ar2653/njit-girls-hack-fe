@@ -5,12 +5,12 @@
             <div class="input-select">
                     <div class="select-item">
                     <input name="speed" id="realtime" type="radio" value="realtime" v-model="speed" @change="onSpeedChange">
-                    <label for="realtime">Play</label>
+                    <label for="realtime"><i class="fa fa-pause"></i></label>
                 </div>
                
                 <div class="select-item">
                     <input name="speed" id="idealized" type="radio" value="idealized" v-model="speed" @change="onSpeedChange">
-                    <label for="idealized">Pause</label>
+                    <label for="idealized"><i class="fa fa-play"></i></label>
                 </div>
             </div>
         </div>
