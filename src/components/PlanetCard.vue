@@ -128,9 +128,16 @@
           Moons: <span class="value">{{ planetInfo.moons }}</span>
         </li>
       </ul>
-      <button @click="openBooking(planetInfo)">
-        <h5>Intrested? Proceed to Book!</h5>
-      </button>
+      <div @click="openBooking(planetInfo)">
+        <h5>Fill in your details!</h5>
+        <form>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" required name="fname" value="John"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" required name="lname" value="Doe"><br><br>
+            <input type="submit" value="Submit">
+        </form> 
+      </div>
     </div>
   </div>
 </template>
