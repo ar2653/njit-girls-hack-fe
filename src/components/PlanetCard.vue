@@ -128,14 +128,37 @@
           Moons: <span class="value">{{ planetInfo.moons }}</span>
         </li>
       </ul>
-      <div @click="openBooking(planetInfo)">
+      <div>
         <h5>Fill in your details!</h5>
         <form>
             <label for="fname">First name:</label><br>
-            <input type="text" id="fname" required name="fname" value="John"><br>
+            <input type="text" id="fname" required name="fname" v-model="user.first_name"><br>
             <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" required name="lname" value="Doe"><br><br>
-            <input type="submit" value="Submit">
+            <input type="text" id="lname" required name="lname" v-model="user.last_name"><br>
+            <label for="email_address">Email address</label><br>
+            <input type="text" id="email_address" required name="email_address" v-model="user.email_address"><br>
+            <label for="cosmic_name">Cosmic handle</label><br>
+            <input type="text" id="cosmicname" required name="cosmicname" v-model="user.cosmic_handle"><br>
+            <label for="tripDate">Trip Date</label><br>
+            <input type="date" id="tripdate" required name="tripdate" v-model="user.trip_date"><br><br>
+
+            <label for="cars">Choose Resources</label> <br>
+            
+            <input type="radio" id="basic" name="basic" value="Basic" v-model="resource_package">
+            <label for="basic" class="tooltip">Basic
+              <span class="tooltiptext">20% more than base price</span>
+            </label><br>
+            <input type="radio" id="premium" name="premium" value="Premium" v-model="resource_package">
+            <label for="basic" class="tooltip">Premium
+              <span class="tooltiptext">30% more than base price</span>
+            </label><br>
+            <input type="radio" id="luxury" name="luxury" value="Luxury" v-model="resource_package">
+            <label for="luxury" class="tooltip">Luxury
+              <span class="tooltiptext">40% more than base price</span>
+            </label><br><br>
+            <h5 @click="bookAppointment(planetInfo)" class="book-trip">Book</h5>
+
+
         </form> 
       </div>
     </div>
@@ -143,12 +166,16 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   props: {
     planetInfo: Object,
   },
   data() {
     return {
+      resource_package: "",
+      user: {first_name: "", last_name:"", email_address:"", cosmic_handle: "", trip_date: ""},
       temperatureColors: {
         "-130": "#a8f1ff",
         "-90": "#1fb6d0",
@@ -158,12 +185,31 @@ export default {
         90: "#ee6600",
         150: "#990000",
       },
+      planetName: ""
     };
   },
   emits: ["closeCard"],
   methods: {
-    openBooking(planet) {
-      console.log(planet);
+    bookAppointment(planet) {
+      console.log(planet.name, this.resource_package);
+      axios
+        .post("http://localhost:4000/appointment/book", {
+          first_name: this.user.first_name,
+          last_name: this.user.last_name,
+          cosmic_handle: this.user.cosmic_handle,
+          displayName: planet.displayName,
+          planet_image: planet.name,
+          appointment_date: this.user.trip_date,
+          package: this.resource_package
+        })
+        .then((response) => {
+          console.log(response.data);
+          this.resource_package = "";
+          this.user = {first_name: "", last_name:"", email_address:"", cosmic_handle: "", trip_date: ""};
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
     temperatureColor(temp) {
       const keys = Object.keys(this.temperatureColors).map((t) => parseInt(t));
@@ -174,12 +220,47 @@ export default {
         }
       }
       return this.temperatureColors[keys[keys.length - 1]];
-    },
+    }
   },
 };
 </script>
 
 <style scoped lang="scss">
+.book-trip {
+  margin-left: 60px;
+  background-color: #fff; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
 .planet-card {
   position: absolute;
   left: 15px;
