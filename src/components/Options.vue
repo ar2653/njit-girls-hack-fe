@@ -174,7 +174,7 @@ export default {
     return {
       speed: "day_sec",
       playMusic: true,
-      showTicketContainer: true,
+      showTicketContainer: false,
       cosmicName: "",
       tickets: [
         {
