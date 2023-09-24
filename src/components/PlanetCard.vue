@@ -89,6 +89,7 @@
     <div class="info">
       <h5>{{ planetInfo.caption }}</h5>
       <p class="description">{{ planetInfo.description }}</p>
+      <h5>BASE PRICE: {{ planetInfo.price }} ETH</h5>
       <ul>
         <li>
           Radius: <span class="value">{{ planetInfo.radius }} km</span>
@@ -206,6 +207,7 @@ export default {
           console.log(response.data);
           this.resource_package = "";
           this.user = {first_name: "", last_name:"", email_address:"", cosmic_handle: "", trip_date: ""};
+          this.$emit("closeCard");
         })
         .catch((error) => {
           console.log(error);

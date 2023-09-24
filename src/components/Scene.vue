@@ -192,7 +192,6 @@ export default {
         clickedPlanet = null;
       }
     });
-    this.x = document.getElementById("myAudio");
 
     this.$emit("onSceneLoad");
   },
@@ -536,6 +535,7 @@ export default {
     getUserDataFor(planet) {
       return {
         name: planet.name,
+        price: planet.price,
         displayName: planet.displayName,
         caption: planet.caption,
         description: planet.description,

@@ -11,8 +11,7 @@
     </div>
   </template>
   <template v-else>
-    <h1>MAKE MY SPACE TRIP</h1>
-
+    <h1>MAKE MY SPACE TRIP !</h1>
     <Scene @onSceneLoad="onSceneLoad" />
     <div ref="loading" class="loading-screen">
       <div class="planet">
@@ -20,7 +19,7 @@
         <div class="cloud"></div>
         <div class="cloud"></div>
       </div>
-      <p>Loading...</p>
+      <p>Loading . . .</p>
     </div>
   </template>
 </template>
