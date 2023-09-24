@@ -12,6 +12,14 @@
                     <input name="speed" id="idealized" type="radio" value="idealized" v-model="speed" @change="onSpeedChange">
                     <label for="idealized"><i class="fa fa-play"></i></label>
                 </div>
+
+                <div class="select-item">
+                    <input name="speed" id="mute" type="radio" value="mute" >
+                    <label for="mute" @click="onVolumeChange">
+                        <i v-if="volumeChange" class="fa fa-volume-off"></i>
+                        <i v-else class="fa fa-volume-up"></i>
+                    </label>
+                </div>
             </div>
         </div>
     </div>
@@ -22,7 +30,8 @@
 export default {
     data() {
         return {
-            speed: "day_sec"
+            speed: "day_sec",
+            volumeChange: true
         }
     },
     emits: ["speedChanged"],
@@ -30,7 +39,11 @@ export default {
         onSpeedChange(e) {
             const value = e.target.value;
             this.$emit('speedChanged', value);
+        },
+        onVolumeChange() {
+            this.volumeChange=!this.volumeChange;
         }
+
     },
     mounted() {
         this.$emit('speedChanged', this.speed);
@@ -39,7 +52,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    .options {
+
+label {
+    font-family: "Orbitron", sans-serif;
+}
+.options {
         position: absolute;
         right: 10px;
         top: 100px;

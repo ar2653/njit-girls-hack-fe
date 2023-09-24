@@ -26,6 +26,7 @@
 </template>
 
 <script>
+
 import Scene from "./components/Scene.vue";
 export default {
   components: {
@@ -113,6 +114,10 @@ export default {
   position: relative; /* Added for z-index */
 }
 
+
+h1{
+  font-family: "Orbitron", sans-serif;
+}
 .text-box {
   font-size: 60px;
   font-family: "Orbitron", sans-serif;
