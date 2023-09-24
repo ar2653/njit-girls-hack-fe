@@ -49,7 +49,7 @@ Back End - https://total-treat-400007.uk.r.appspot.com/
 - Richa Singh <p><img  src="./rs.jpeg"  width=50  height=50>
 
 ### Roadmap to Development for Hackathon:
-<p><img  src="./trello.jpeg"  width=50  height=50>
+<p><img  src="./trello.jpeg"  width=500  height=300>
 
 ### How does it work?
 
