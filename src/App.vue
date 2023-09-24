@@ -98,8 +98,11 @@ export default {
   top: 660px;
   right: 800px;
 }
+.heading{
+  padding: 30px;
+}
 .typewriter h1 {
-  top: 300px;
+  top: 150px;
 
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: 0.15em solid orange; /* The typwriter cursor */
