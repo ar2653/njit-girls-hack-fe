@@ -15,7 +15,7 @@
 ### 
 
 <p align="center">
-<img alt="Solar system gif" src="./readme_gif.gif" />
+<img alt="Solar system gif" src="./landing_page.gif" />
 </p>
 <p align="center">Made with <a href="https://github.com/mrdoob/three.js">ThreeJS</a> and <a href="https://github.com/vuejs/core">Vue</a></p>
 
