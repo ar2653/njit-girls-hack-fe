@@ -1,6 +1,6 @@
 
 <p align="center"><img src="./logo.svg" width=100 height=100>
-<h1 align="center">Solar System</h1></p>
+<h1 align="center">Make my space travel</h1></p>
 <h5 align="center">🌎​ Interactive Solar System 3D replica 🪐</h5>
 
 <p align="center">
