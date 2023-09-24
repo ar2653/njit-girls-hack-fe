@@ -1,7 +1,7 @@
 
   
 
-<p  align="center"><img  src="./logo.svg"  width=100  height=100>
+<p  align="center"><img  src="./girlhacks.jpeg"  width=100  height=100>
 
 <h1  align="center">Make My Space Trip</h1></p>
   
@@ -44,9 +44,12 @@ Front End - https://tabrez-njit.github.io/
 Back End - https://total-treat-400007.uk.r.appspot.com/
 
 ### Meet the Team:
-- Shaik Tabrez 
-- Ankush Ranapure
-- Richa Singh
+- Shaik Tabrez <p><img  src="./st.jpeg"  width=50  height=50>
+- Ankush Ranapure <p><img  src="./ar.jpeg"  width=50  height=50>
+- Richa Singh <p><img  src="./rs.jpeg"  width=50  height=50>
+
+### Roadmap to Development for Hackathon:
+<p><img  src="./trello.jpeg"  width=50  height=50>
 
 ### How does it work?
 
