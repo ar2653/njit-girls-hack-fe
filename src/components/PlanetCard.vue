@@ -194,7 +194,7 @@ export default {
     bookAppointment(planet) {
       console.log(planet.name, this.resource_package);
       axios
-        .post("http://localhost:4000/appointment/book", {
+        .post("https://total-treat-400007.uk.r.appspot.com/appointment/book", {
           first_name: this.user.first_name,
           last_name: this.user.last_name,
           cosmic_handle: this.user.cosmic_handle,
