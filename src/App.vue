@@ -12,10 +12,6 @@
   </template>
   <template v-else>
     <h1>MAKE MY SPACE TRIP</h1>
-    <div class="button-wrapper-1">
-        <div class="button" @click="changeBack">Go Back</div>
-
-    </div>
 
     <Scene @onSceneLoad="onSceneLoad" />
     <div ref="loading" class="loading-screen">
@@ -30,29 +26,25 @@
 </template>
 
 <script>
-    import Scene from "./components/Scene.vue";
-    export default {
-        components: {
-            Scene,
-},
-        data(){
-            return {
-                showLandingPage:true
-            }
-        },
-        methods: {
-            onSceneLoad() {
-                this.$refs.loading.style.display = "none";
-            },
-            changeHomePage() {
-                this.showLandingPage = false;
-            },
-            changeBack() {
-                this.showLandingPage = true;
-            }
-
-        }
-    }
+import Scene from "./components/Scene.vue";
+export default {
+  components: {
+    Scene,
+  },
+  data() {
+    return {
+      showLandingPage: true,
+    };
+  },
+  methods: {
+    onSceneLoad() {
+      this.$refs.loading.style.display = "none";
+    },
+    changeHomePage() {
+      this.showLandingPage = false;
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -109,7 +101,7 @@
   }
 }
 
-    .space-trip {
+.space-trip {
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -120,8 +112,6 @@
   align-items: center;
   position: relative; /* Added for z-index */
 }
-
-
 
 .text-box {
   font-size: 60px;
@@ -139,7 +129,6 @@
   padding: 20px;
   flex-direction: row;
 }
-
 
 .button-wrapper-1 {
   display: flex;
