@@ -15,8 +15,8 @@
 
                 <div class="select-item">
                     <input name="speed" id="mute" type="radio" value="mute" >
-                    <label for="mute" @click="onVolumeChange">
-                        <i v-if="volumeChange" class="fa fa-volume-off"></i>
+                    <label for="mute" @click="togglePlayMusic">
+                        <i v-if="playMusic" class="fa fa-volume-off"></i>
                         <i v-else class="fa fa-volume-up"></i>
                     </label>
                 </div>
@@ -31,7 +31,7 @@ export default {
     data() {
         return {
             speed: "day_sec",
-            volumeChange: true
+            playMusic: true
         }
     },
     emits: ["speedChanged"],
@@ -40,8 +40,9 @@ export default {
             const value = e.target.value;
             this.$emit('speedChanged', value);
         },
-        onVolumeChange() {
-            this.volumeChange=!this.volumeChange;
+        togglePlayMusic() {
+            this.playMusic=!this.playMusic;
+            this.$emit('musicUpdate', this.playMusic);
         }
 
     },

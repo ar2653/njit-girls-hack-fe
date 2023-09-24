@@ -7,10 +7,8 @@
       />
     </audio>
   </div>
-  <button @click="playAudio" type="button">Play Audio</button>
-  <button @click="pauseAudio" type="button">Pause Audio</button>
   <canvas ref="canvas"></canvas>
-  <Options @speedChanged="onSpeedChange" />
+  <Options @speedChanged="onSpeedChange" @musicUpdate="musicUpdate" />
   <PlanetCard
     v-if="selectedPlanetCard != null"
     :planetInfo="selectedPlanetCard"
@@ -199,6 +197,10 @@ export default {
     this.$emit("onSceneLoad");
   },
   methods: {
+    musicUpdate(musicState) {
+      if (musicState) return this.$refs.player.play();
+      return this.$refs.player.pause();
+    },
     playAudio() {
       this.$refs.player.play();
     },
