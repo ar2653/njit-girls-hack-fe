@@ -10,7 +10,7 @@
 
 ### 
 
-<h3 align="center"><a href="https://honzaap.github.io/SolarSystem">Try it out!</a></h3>
+<h3 align="center"><a href="https://tabrez-njit.github.io/">Try it out!</a></h3>
 
 ### 
 
