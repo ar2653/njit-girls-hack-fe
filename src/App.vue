@@ -1,25 +1,34 @@
 <template>
   <template v-if="showLandingPage">
     <div class="space-trip">
+      <div class="typewriter">
+        <h1>
+          <p>
+            AI is everywhere, from your smart fridge to your selfie filters.
+          </p>
+          <p>
+            But amidst this, SPACE TRAVEL still stands as a beacon of human
+            ingenuity,
+          </p>
+          <p>reminding us of the grandeur of exploration beyond our planet.</p>
+        </h1>
+      </div>
+
       <div class="text-box">
         <div class="heading">Make my space trip!</div>
         <div class="button-wrapper">
-          <div class="button">About the tech</div>
+          <div class="button" @click="showTechStack">TECH STACK</div>
           <div class="button" @click="changeHomePage">Book My Trip</div>
-          <div class="button">About the TEAM</div>
+          <div class="button" @click="showMeetTheTeam">MEET the TEAM</div>
+          <div class="button" @click="redirectToGithub">Know more details</div>
+        </div>
+        <div v-if="techStack" class="tech-stack">
+          <h1>WEBGL, THREEJS, VUE, VITE, NODEJS, EXPRESS, MONGODB, GOOGLE CLOUD</h1>
+        </div>
+        <div v-if="meetTheTeam" class="meet-team">
+          <h1>TABREZ__(FRONTEND), ANKUSH___(BACKEND), RICHA____(DATABASE)</h1>
         </div>
       </div>
-    </div>
-    <div class="typewriter">
-      <h1>
-        <p>AI is everywhere, from your smart fridge to your selfie filters.</p>
-        <p>
-          But amidst this, SPACE TRAVEL still stands as a beacon of human
-          ingenuity,
-        </p>
-        <p>reminding us of the grandeur of exploration beyond our planet.</p>
-      </h1>
-      <p>New line</p>
     </div>
   </template>
   <template v-else>
@@ -45,6 +54,8 @@ export default {
   data() {
     return {
       showLandingPage: true,
+      techStack: false,
+      meetTheTeam: false,
     };
   },
   methods: {
@@ -54,12 +65,39 @@ export default {
     changeHomePage() {
       this.showLandingPage = false;
     },
+    showTechStack() {
+      this.techStack = true;
+      this.closeAfterDelay(10000);
+    },
+    showMeetTheTeam() {
+      this.meetTheTeam = true;
+      this.closeAfterDelay(8000);
+    },
+    redirectToGithub() {
+      window.open("https://github.com/tabrezdn1/njit-girls-hack#readme", "_blank");
+    },
+    closeAfterDelay(time) {
+      setTimeout(() => {
+        this.techStack = false;
+        this.meetTheTeam = false;
+      }, time);
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
 /* DEMO-SPECIFIC STYLES */
+.tech-stack {
+  position: absolute;
+  top: 660px;
+  width: 200px;
+}
+.meet-team {
+  position: absolute;
+  top: 660px;
+  right: 800px;
+}
 .typewriter h1 {
   top: 300px;
 

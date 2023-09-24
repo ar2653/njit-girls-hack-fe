@@ -35,16 +35,24 @@
               <i v-else class="fa fa-volume-up"></i>
             </label>
           </div>
+
+          <div class="select-item">
+            <input name="speed" id="tickets" type="radio" value="mute" />
+            <label for="tickets" @click="toggleTicketContainer">
+              <i v-if="showTicketContainer" class="fa fa-eye-slash"></i>
+              <i v-else class="fa fa-eye"></i>
+            </label>
+          </div>
         </div>
       </div>
     </div>
-    <div class="tickets">
+    <div v-if="showTicketContainer" class="tickets">
       <h4>Get your ticket here!</h4>
-      <label>Cosmic Name</label>
+      <label>Cosmic Name </label>
       <input
         type="text"
         @keypress.enter="fetchTickets()"
-        v-model="cosmic_name"
+        v-model="cosmicName"
       />
       <button @click="fetchTickets()">Fetch!</button>
       <button v-if="tickets[0].data.length" @click="clearTickets()">
@@ -166,7 +174,8 @@ export default {
     return {
       speed: "day_sec",
       playMusic: true,
-      cosmic_name: "",
+      showTicketContainer: true,
+      cosmicName: "",
       tickets: [
         {
           data: [],
@@ -199,18 +208,23 @@ export default {
       this.playMusic = !this.playMusic;
       this.$emit("musicUpdate", this.playMusic);
     },
+    toggleTicketContainer() {
+        this.showTicketContainer = !this.showTicketContainer;
+
+    },
     clearTickets() {
-      this.tickets = [
-        {
-          data: [],
-        },
-      ];
+      (this.cosmicName = ""),
+        (this.tickets = [
+          {
+            data: [],
+          },
+        ]);
     },
     fetchTickets() {
       //   this.showTicket = true;
       axios
         .get(
-          `http://localhost:4000/appointment/bookings?cosmic_handle=${this.cosmic_name}`
+          `http://localhost:4000/appointment/bookings?cosmic_handle=${this.cosmicName}`
         )
         .then((response) => {
           response.data.data.map((item) => {
@@ -495,7 +509,7 @@ html {
 .tickets {
   position: absolute;
   right: 10px;
-  top: 300px;
+  top: 320px;
   background-color: var(--primary);
   border-radius: var(--radius);
   padding: 10px 10px 10px 10px;
