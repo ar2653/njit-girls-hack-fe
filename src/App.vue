@@ -4,10 +4,22 @@
       <div class="text-box">
         <div class="heading">Make my space trip!</div>
         <div class="button-wrapper">
-          <div class="button">Learn More</div>
-          <div class="button" @click="changeHomePage">Book Trip</div>
+          <div class="button">About the tech</div>
+          <div class="button" @click="changeHomePage">Book My Trip</div>
+          <div class="button">About the TEAM</div>
         </div>
       </div>
+    </div>
+    <div class="typewriter">
+      <h1>
+        <p>AI is everywhere, from your smart fridge to your selfie filters.</p>
+        <p>
+          But amidst this, SPACE TRAVEL still stands as a beacon of human
+          ingenuity,
+        </p>
+        <p>reminding us of the grandeur of exploration beyond our planet.</p>
+      </h1>
+      <p>New line</p>
     </div>
   </template>
   <template v-else>
@@ -47,6 +59,38 @@ export default {
 </script>
 
 <style scoped lang="scss">
+/* DEMO-SPECIFIC STYLES */
+.typewriter h1 {
+  top: 300px;
+
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 50%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
 .loading-screen {
   position: absolute;
   top: 0;
