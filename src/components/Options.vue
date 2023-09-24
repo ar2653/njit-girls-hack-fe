@@ -1,23 +1,16 @@
 <template>
     <div class="options">
         <div class="form-group">
-            <label>Speed</label>
+            <label>Controls</label>
             <div class="input-select">
                     <div class="select-item">
                     <input name="speed" id="realtime" type="radio" value="realtime" v-model="speed" @change="onSpeedChange">
-                    <label for="realtime">Realtime</label>
+                    <label for="realtime">Play</label>
                 </div>
-                <div class="select-item">
-                    <input checked name="speed" id="day_sec" type="radio" value="day_sec" v-model="speed" @change="onSpeedChange">
-                    <label for="day_sec">1 day/sec</label>
-                </div>
-                <div class="select-item">
-                    <input name="speed" id="mon_sec" type="radio" value="mon_sec" v-model="speed" @change="onSpeedChange">
-                    <label for="mon_sec">1 mon/sec</label>
-                </div>
+               
                 <div class="select-item">
                     <input name="speed" id="idealized" type="radio" value="idealized" v-model="speed" @change="onSpeedChange">
-                    <label for="idealized">Idealized</label>
+                    <label for="idealized">Pause</label>
                 </div>
             </div>
         </div>
@@ -25,6 +18,7 @@
 </template>
 
 <script>
+
 export default {
     data() {
         return {

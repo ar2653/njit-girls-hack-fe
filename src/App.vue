@@ -9,10 +9,14 @@
         </div>
       </div>
     </div>
-    <!-- <LandingPage @onSceneLoad="onSceneLoad" /> -->
   </template>
   <template v-else>
     <h1>MAKE MY SPACE TRIP</h1>
+    <div class="button-wrapper-1">
+        <div class="button" @click="changeBack">Go Back</div>
+
+    </div>
+
     <Scene @onSceneLoad="onSceneLoad" />
     <div ref="loading" class="loading-screen">
       <div class="planet">
@@ -27,7 +31,6 @@
 
 <script>
     import Scene from "./components/Scene.vue";
-    // import LandingPage from "./components/LandingPage.vue";
     export default {
         components: {
             Scene,
@@ -43,6 +46,9 @@
             },
             changeHomePage() {
                 this.showLandingPage = false;
+            },
+            changeBack() {
+                this.showLandingPage = true;
             }
 
         }
