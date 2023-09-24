@@ -5,12 +5,26 @@
         <label>Controls</label>
         <div class="input-select">
           <div class="select-item">
-            <input name="speed" id="realtime" type="radio" value="realtime" v-model="speed" @change="onSpeedChange" />
+            <input
+              name="speed"
+              id="realtime"
+              type="radio"
+              value="realtime"
+              v-model="speed"
+              @change="onSpeedChange"
+            />
             <label for="realtime"><i class="fa fa-pause"></i></label>
           </div>
 
           <div class="select-item">
-            <input name="speed" id="idealized" type="radio" value="idealized" v-model="speed" @change="onSpeedChange" />
+            <input
+              name="speed"
+              id="idealized"
+              type="radio"
+              value="idealized"
+              v-model="speed"
+              @change="onSpeedChange"
+            />
             <label for="idealized"><i class="fa fa-play"></i></label>
           </div>
 
@@ -27,72 +41,115 @@
     <div class="tickets">
       <h4>Get your ticket here!</h4>
       <label>Cosmic Name</label>
-      <input type="text" v-model="cosmic_name">
+      <input
+        type="text"
+        @keypress.enter="fetchTickets()"
+        v-model="cosmic_name"
+      />
       <button @click="fetchTickets()">Fetch!</button>
+      <button v-if="tickets[0].data.length" @click="clearTickets()">
+        Clear
+      </button>
       <div v-for="(ticket, index) in tickets[0].data" :key="index">
         <div class="ticket">
           <div class="left">
             <div class="image">
               <p class="admit-one">
-                <span><img class="sponsor-img"
+                <span
+                  ><img
+                    class="sponsor-img"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVj-3ZgTNfEZdmpaa1Fng2Iw_FvNQUQA5nmk4oBw7y&s"
-                    alt="planetInfo.displayName" /></span>
-                <span><img class="sponsor-img"
+                    alt="planetInfo.displayName"
+                /></span>
+                <span
+                  ><img
+                    class="sponsor-img"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpGANoMqSG8nLVzrMdhuDcmb0UBTMf7f-Uk8x6fG918w&s"
-                    alt="planetInfo.displayName" /></span>
-                <span><img class="sponsor-img"
+                    alt="planetInfo.displayName"
+                /></span>
+                <span
+                  ><img
+                    class="sponsor-img"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM5HoiIbFA5BvhKxZQSlzGRfEz4IxvSa0cIOCFTYEbZw&s"
-                    alt="planetInfo.displayName" /></span>
+                    alt="planetInfo.displayName"
+                /></span>
               </p>
-              <img class="planet-img" :src="`./assets/cards/${ticket.planet_image}.png`" alt="planetInfo.displayName" />
-              <div class="ticket-number">
-                <p>#{{ ticket._id.substring(0, 6) }}</p>
-              </div>
+              <img
+                class="planet-img"
+                :src="`./assets/cards/${ticket.planet_image}.png`"
+                alt="planetInfo.displayName"
+              />
             </div>
             <div class="ticket-info">
               <p class="date">
                 <span>{{ ticket.dayOfWeek }}</span>
-                <span class="june-29"> {{ ticket.month }} {{ ticket.formattedDayOfMonth }}</span>
+                <span class="june-29">
+                  {{ ticket.month }} {{ ticket.formattedDayOfMonth }}</span
+                >
                 <span> {{ ticket.year }}</span>
               </p>
               <div class="show-name">
-                <h2>{{ ticket.first_name }} {{ ticket.last_name }}</h2>
+                <h2>
+                  {{
+                    ticket.first_name.charAt(0).toUpperCase() +
+                    ticket.first_name.slice(1)
+                  }}
+                  {{
+                    ticket.last_name.charAt(0).toUpperCase() +
+                    ticket.last_name.slice(1)
+                  }}
+                </h2>
               </div>
               <div class="time">
-                <p>EARTH<span> TO </span>{{ ticket.planet_image.toUpperCase() }}</p>
+                <p>
+                  EARTH<span> TO </span>{{ ticket.planet_image.toUpperCase() }}
+                </p>
                 <p>Travelling <span>@</span> {{ ticket.package }} Package</p>
               </div>
               <p class="location">
                 <span>NJIT</span>
-                <span class="separator"><i class="far fa-smile"></i></span><span>GirlsHackathon 2023</span>
+                <span class="separator"><i class="far fa-smile"></i></span
+                ><span>GirlsHackathon 2023</span>
               </p>
             </div>
           </div>
           <div class="right">
             <p class="admit-one">
-              <span><img class="sponsor-img"
+              <span
+                ><img
+                  class="sponsor-img"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMMqM-7Xc8732C_8vx6ze1HnNVo2Rw25dQPeo3kMNW0g&s"
-                  alt="planetInfo.displayName" /></span>
-              <span><img class="sponsor-img"
+                  alt="planetInfo.displayName"
+              /></span>
+              <span
+                ><img
+                  class="sponsor-img"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR36VDb-06OycfZuYqcWIZRReofQgoQprCRWF9V5c3BdQ&s"
-                  alt="planetInfo.displayName" /></span>
-              <span><img class="sponsor-img"
+                  alt="planetInfo.displayName"
+              /></span>
+              <span
+                ><img
+                  class="sponsor-img"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy-b6LuMASfHQLzJE-eo9vr12Vh6vDkRSTZf3dup2A&s"
-                  alt="planetInfo.displayName" /></span>
+                  alt="planetInfo.displayName"
+              /></span>
             </p>
             <div class="right-info-container">
               <div class="time">
                 <p>EARTH <span></span></p>
                 <p><span>TO</span></p>
-                <p>{{ ticket.planet_image.toUpperCase() }} </p>
-                <p><span>@</span>{{ ticket.package }} </p>
+                <p>{{ ticket.planet_image.toUpperCase() }}</p>
+                <p><span>@</span>{{ ticket.package }}</p>
               </div>
               <div class="barcode">
                 <img
                   src="https://external-preview.redd.it/cg8k976AV52mDvDb5jDVJABPrSZ3tpi1aXhPjgcDTbw.png?auto=webp&s=1c205ba303c1fa0370b813ea83b9e1bddb7215eb"
-                  alt="QR code" />
+                  alt="QR code"
+                />
               </div>
-              <p class="ticket-number">{{ parseFloat(ticket.price).toFixed(2) }} ETH </p>
+              <p class="ticket-number">
+                {{ parseFloat(ticket.price).toFixed(2) }} ETH
+              </p>
             </div>
           </div>
         </div>
@@ -112,26 +169,26 @@ export default {
       cosmic_name: "",
       tickets: [
         {
-          data: []
-        }
-      ]
+          data: [],
+        },
+      ],
     };
   },
   emits: ["speedChanged"],
   methods: {
     getDayOfMonthSuffix(day) {
       if (day >= 11 && day <= 13) {
-        return 'th';
+        return "th";
       }
       switch (day % 10) {
         case 1:
-          return 'st';
+          return "st";
         case 2:
-          return 'nd';
+          return "nd";
         case 3:
-          return 'rd';
+          return "rd";
         default:
-          return 'th';
+          return "th";
       }
     },
     onSpeedChange(e) {
@@ -142,20 +199,35 @@ export default {
       this.playMusic = !this.playMusic;
       this.$emit("musicUpdate", this.playMusic);
     },
+    clearTickets() {
+      this.tickets = [
+        {
+          data: [],
+        },
+      ];
+    },
     fetchTickets() {
       //   this.showTicket = true;
       axios
-        .get(`http://localhost:4000/appointment/bookings?cosmic_handle=${this.cosmic_name}`)
+        .get(
+          `http://localhost:4000/appointment/bookings?cosmic_handle=${this.cosmic_name}`
+        )
         .then((response) => {
-          console.log(response.data);
-          response.data.data.map(item => {
-              item.month = this.convertAppointmentDate(item.appointment_date).month,
-              item.dayOfWeek = this.convertAppointmentDate(item.appointment_date).dayOfWeek,
-              item.formattedDayOfMonth = this.convertAppointmentDate(item.appointment_date).formattedDayOfMonth,
-              item.year = this.convertAppointmentDate(item.appointment_date).year
-          })
+          response.data.data.map((item) => {
+            (item.month = this.convertAppointmentDate(
+              item.appointment_date
+            ).month),
+              (item.dayOfWeek = this.convertAppointmentDate(
+                item.appointment_date
+              ).dayOfWeek),
+              (item.formattedDayOfMonth = this.convertAppointmentDate(
+                item.appointment_date
+              ).formattedDayOfMonth),
+              (item.year = this.convertAppointmentDate(
+                item.appointment_date
+              ).year);
+          });
           this.tickets[0].data = response.data.data;
-          console.log(this.tickets[0].data, "this.tickets[0].data")
         })
         .catch((error) => {
           console.log(error);
@@ -167,10 +239,31 @@ export default {
       const appointmentDate = new Date(appointmentDateStr);
 
       // Get the day of the week
-      const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const daysOfWeek = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
       const dayOfWeek = daysOfWeek[appointmentDate.getDay()];
 
-      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
       const month = months[appointmentDate.getMonth()];
 
       // Get the day of the month with the appropriate suffix (e.g., "1st", "2nd", "3rd", "4th", etc.)
@@ -181,8 +274,13 @@ export default {
       // Get the year
       const year = appointmentDate.getFullYear();
       console.log(`${dayOfWeek}, ${formattedDayOfMonth}, ${year}`);
-      return { dayOfWeek: dayOfWeek, formattedDayOfMonth: formattedDayOfMonth, year: year , month: month};
-    }
+      return {
+        dayOfWeek: dayOfWeek,
+        formattedDayOfMonth: formattedDayOfMonth,
+        year: year,
+        month: month,
+      };
+    },
   },
   mounted() {
     this.$emit("speedChanged", this.speed);
@@ -400,7 +498,9 @@ html {
   top: 300px;
   background-color: var(--primary);
   border-radius: var(--radius);
-  padding: 10px 100px 10px 100px;
+  padding: 10px 10px 10px 10px;
+  max-height: 600px;
+  overflow-y: auto;
 }
 
 .options {
@@ -412,7 +512,7 @@ html {
     margin: 15px 5px;
     text-align: center;
 
-    >label {
+    > label {
       font-size: 18px;
     }
   }
@@ -434,7 +534,7 @@ html {
       input {
         appearance: none;
 
-        &:checked+label {
+        &:checked + label {
           background-color: var(--tertiary);
         }
       }
@@ -462,7 +562,7 @@ html {
       background-color: var(--tertiary);
     }
 
-    &+label {
+    & + label {
       cursor: pointer;
     }
   }
