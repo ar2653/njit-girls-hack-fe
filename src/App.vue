@@ -23,7 +23,7 @@
           <div class="button" @click="redirectToGithub">Know more details</div>
         </div>
         <div v-if="techStack" class="tech-stack">
-          <h1>WEBGL, THREEJS, VUE, VITE, NODEJS, EXPRESS, MONGODB, GOOGLE CLOUD</h1>
+          <h1>WEBGL, THREEJS, VUE+VITE, NODEJS, EXPRESS, MONGODB, GITHUB PAGES(FE), GOOGLE CLOUD(BE)</h1>
         </div>
         <div v-if="meetTheTeam" class="meet-team">
           <h1>TABREZ__(FRONTEND), ANKUSH___(BACKEND), RICHA____(DATABASE)</h1>
