@@ -224,7 +224,7 @@ export default {
       //   this.showTicket = true;
       axios
         .get(
-          `https://total-treat-400007.uk.r.appspot.com/appointment/bookings?cosmic_handle=${this.cosmicName}`
+          `https://mmstbe.ankushranapure.com/appointment/bookings?cosmic_handle=${this.cosmicName}`
         )
         .then((response) => {
           response.data.data.map((item) => {
